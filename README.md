@@ -26,7 +26,7 @@ PDFs, Bilder und Textdateien können geladen und mit unterschiedlichen Accuracy�
   - `components/` – UI‑Bausteine (`FileTile`, `PdfEditor`, Radix‑UI Wrapper usw.)
   - `index.css` – Tailwind 4 Konfiguration + Theme‑Tokens
 - `src-tauri/`
-  - `src/main.rs` – Tauri‑Commands (`run_engine`, File‑Dialoge, Finder‑Öffnen)
+  - `src/main.rs` – Tauri‑Commands (`run_engine`, File‑Dialoge, ...)
   - `tauri.conf.json` – App‑Konfiguration
 - `engine/`
   - `engineV2.py` – Presidio‑Engine (PDF/Image/Text/JSON Orchestrierung)
@@ -39,7 +39,7 @@ PDFs, Bilder und Textdateien können geladen und mit unterschiedlichen Accuracy�
 - **Node.js** ≥ 20
 - **Rust toolchain** (für Tauri):  
   siehe Tauri‑Docs (`cargo`, `rustup`, passende Targets)
-- **Python 3.11** (für `engineV2.py`)
+- **Python 3.11** (für `engine`)
 - System‑Dependencies für:
   - PyMuPDF (`fitz`)
   - Tesseract OCR (Binary + `deu` + `eng` Sprachpakete)
@@ -51,7 +51,7 @@ PDFs, Bilder und Textdateien können geladen und mit unterschiedlichen Accuracy�
 1. **Repository klonen**
 
 ```bash
-git clone <dein-repo>
+git clone <repo-url>
 cd scrubby
 ```
 
@@ -63,7 +63,7 @@ npm install
 
 3. **Python‑Umgebung & Engine‑Deps**
 
-- Empfohlen: virtuelles Env im Projektroot (`venv311`):
+- Empfohlen: virtuelles Env im Projektroot (`venv`):
 
 ```bash
 python3.11 -m venv venv
@@ -158,7 +158,6 @@ src/                # React UI
 
 engine/             # Python Backend
 ├── engine.py      # Vollversion (Presidio)
-└── engine_simple.py # Einfache Version (Regex)
 
 data/               # Runtime-Verzeichnisse
 ├── input/         # Eingabedateien
