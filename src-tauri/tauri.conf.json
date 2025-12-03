@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "tauri-sanitizer",
+  "version": "0.1.0",
+  "identifier": "com.christianschwaar.tauri-sanitizer",
+
+  "build": {
+    "beforeDevCommand": "vite",
+    "devUrl": "http://localhost:1428",
+    "beforeBuildCommand": "vite build",
+    "frontendDist": "../dist"
+  },
+
+  "app": {
+    "windows": [
+      { "label": "main", "title": "Scrubby", "width": 1200, "height": 700, "resizable": true, "dragDropEnabled": false }
+    ],
+    "security": {
+      "csp": "default-src 'self' asset: http://asset.localhost ipc: http://ipc.localhost; img-src 'self' asset: http://asset.localhost data:; frame-src 'self' asset: http://asset.localhost; media-src 'self' asset: http://asset.localhost; style-src 'self' 'unsafe-inline'",
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["../data/**", "../dist/**"]
+      }
+    }
+  },
+
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "externalBin": [
+      "../dist/engine"
+    ]
+  },
+
+  "plugins": {
+    "shell": {
+      "scope": [
+        {
+          "name": "engine",
+          "cmd": "../dist/engine"
+        },
+        {
+          "name": "open",
+          "cmd": "open"
+        },
+        {
+          "name": "xdg-open",
+          "cmd": "xdg-open"
+        },
+        {
+          "name": "explorer",
+          "cmd": "explorer.exe"
+        }
+      ]
+    },
+    "fs": {
+      "requireLiteralLeadingDot": false
+    }
+  }
+}
