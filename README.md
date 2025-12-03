@@ -1,8 +1,5 @@
 # Automatic PII Reduction App
 
-Scrubby ist eine Desktop‑App auf Basis von **Tauri 2 + React + Python**, die Dokumente mit komplett lokal anonymisiert.
-PDFs, Bilder und Textdateien können geladen und mit unterschiedlichen Accuracy‑Einstellungen geschwärzt werden.
-
 ![Preview](public/preview.png)
 
 ### Features
